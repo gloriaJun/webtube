@@ -3,10 +3,13 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 
+// import router configuration
+import globalRouter from './routes/globalRouter';
+import userRouter from './routes/userRouter';
+import videoRouter from './routes/videoRouter';
+
 const app = express();
 
-const HOST = 'localhost';
-const PORT = 3000;
 
 /**
  * middleware
@@ -22,21 +25,9 @@ app.use(cookieParser());
 /**
  * define router
  */
-app.get('/', function (req, res) {
-  console.log(req.body);
-  console.log('Cookies: ', req.cookies)
-  console.log('Signed Cookies: ', req.signedCookies)
-  res.send('This is Index Page !!');
-});
-
-app.get('/profile', function (req, res) {
-  res.send('This is Profile Page');
-})
+app.use('/', globalRouter);
+app.use('/users', userRouter);
+app.use('/videos', videoRouter);
 
 
-/**
- * set port
- */
-app.listen(PORT, function () {
-  console.log(`Listening on http://${HOST}:${PORT}`);
-});
+export default app;

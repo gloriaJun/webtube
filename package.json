@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec babel-node index.js --delay 5"
+    "dev": "nodemon --exec babel-node init.js --delay 5"
   },
   "dependencies": {
     "cookie-parser": "^1.4.3",
