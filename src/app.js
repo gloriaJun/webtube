@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
+import path from 'path';
 
 // import router configuration
 import routes from './routes';
@@ -11,6 +12,11 @@ import videoRouter from './routes/videoRouter';
 
 const app = express();
 
+/**
+ * set template engine
+ */
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
 /**
  * middleware

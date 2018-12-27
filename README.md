@@ -57,3 +57,7 @@ import helmet from 'helmet';
 app.use(helmet());
 ```
 
+#### Pug
+- template engine으로 유사한 기능을 제공하는 것으로는 *handlebars, mustache, ejs* 등이 있다.
+- 기존에는 *Jade*라는 이름이었는데 상표권 문제로 Pug로 이름이 변경 (흠..hudson이 jenkins가 된 것과 유사한 사유인가보다...)
+- 가장 많이 사용되는 템플릿 엔진인 듯..
