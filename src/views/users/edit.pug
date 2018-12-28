@@ -1,4 +1,12 @@
 extends ../layouts/main.pug
 
 block content
-    p Login Page
+    .form--container
+        form(action=`${routes.users}${routes.userEdit}`, method="post")
+            label(for="avatar") Avatar
+            input(type="file", id="avatar", name="avatar")
+            input(type="text", name="name", placeholder="Input Name")
+            input(type="email", name="email", placeholder="Input E-mail")
+            input(type="submit", value="Edit Profile")
+
+        a.form--container--link(href=`${routes.users}${routes.userChangePassword}`) Change Password

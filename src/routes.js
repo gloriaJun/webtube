@@ -10,7 +10,7 @@ const SEARCH = '/search';
 const USERS = '/users';
 const USER_DETAIL = '/:id';
 const USER_EDIT = '/edit/profile';
-const CHANGE_PASSWORD = '/edit/password'
+const CHANGE_PASSWORD = '/edit/password';
 
 /**
  * video

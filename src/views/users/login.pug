@@ -1,4 +1,10 @@
 extends ../layouts/main
 
 block content
-    p Login Page
+    .form--container
+        form(action=routes.login, method="post")
+            input(type="email", name="email", placeholder="Input E-mail")
+            input(type="password", name="password", placeholder="Input Password")
+            input(type="submit", value="Log In")
+
+        include ../partials/socialLogin
