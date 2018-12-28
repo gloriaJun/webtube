@@ -90,6 +90,11 @@ title #{siteName}
 span.footer--text &copy; #{new Date().getFullYear()} WeTube
 ```
 
+#### mixins
+
+- 재사용 가능한 부분을 정의하기 위한 기능
+- https://pugjs.org/language/mixins.html
+
 ### Social Login
 
 

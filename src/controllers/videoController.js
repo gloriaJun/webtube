@@ -1,6 +1,13 @@
+import { videos } from '../db';
+
 const BaseDir = 'videos';
 
-export const home = (req, res) => res.render('home', { pageTitle: 'Home' });
+export const home = (req, res) => {
+  res.render('home', {
+    pageTitle: 'Home',
+    videos,
+  });
+};
 
 export const search = (req, res) => {
   const { query: { keyword } } = req;

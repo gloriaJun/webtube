@@ -1,0 +1,5 @@
+mixin videoBlock(video)
+    .video-block
+        video.video-block--thumnail(src=video.videoFile, controls=true)
+        h4.video-block--title=video.title
+        h6.video-block-views=video.views
