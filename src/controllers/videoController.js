@@ -15,6 +15,7 @@ export const search = (req, res) => {
   res.render(`${BaseDir}/search`, {
     pageTitle: 'Home',
     keyword,
+    videos,
   });
 }
 export const upload = (req, res) => res.render(`${BaseDir}/upload`, { pageTitle: 'Upload Video' });

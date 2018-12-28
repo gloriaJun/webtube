@@ -29,14 +29,14 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
   users: USERS,
-  userDetail: USER_DETAIL,
+  userDetail: id => id ? `/${id}` : USER_DETAIL,
   userEdit: USER_EDIT,
   userChangePassword: CHANGE_PASSWORD,
   videos: VIDEOS,
   videoUpload: VIDEO_UPLOAD,
-  videoDetail: VIDEO_DETAIL,
-  videoEdit: VIDEO_EDIT,
-  videoDelete: VIDEO_DELETE,
+  videoDetail: id => id ? `/${id}` : VIDEO_DETAIL,
+  videoEdit: id => id ? `/${id}/edit` : VIDEO_EDIT,
+  videoDelete: id => id ? `/${id}/delete` : VIDEO_DELETE,
 };
 
 export default routes;

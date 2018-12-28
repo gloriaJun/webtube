@@ -9,7 +9,15 @@ header.header
 
     .header-column
         ul
-            li
-                a(href=routes.join) Join
-            li
-                a(href=routes.login) Login
+            if user.isAuthenticated
+                li
+                    a(href=routes.videoUpload) Upload
+                li
+                    a(href=`${routes.users}${routes.userDetail(user.id)}`) Profile
+                li
+                    a(href=routes.logout) LogOut
+            else
+                li
+                    a(href=routes.join) Join
+                li
+                    a(href=routes.login) Login

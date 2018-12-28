@@ -1,6 +1,11 @@
 extends ../layouts/main.pug
+include ../mixins/videoBlock
 
 block content
     .search--header
         h3 Searching by...
             span.search--keyword #{keyword}
+
+    .search--result
+        each video in videos
+            +videoBlock(video)
