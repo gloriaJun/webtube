@@ -61,3 +61,21 @@ app.use(helmet());
 - template engine으로 유사한 기능을 제공하는 것으로는 *handlebars, mustache, ejs* 등이 있다.
 - 기존에는 *Jade*라는 이름이었는데 상표권 문제로 Pug로 이름이 변경 (흠..hudson이 jenkins가 된 것과 유사한 사유인가보다...)
 - 가장 많이 사용되는 템플릿 엔진인 듯..
+- 내부에서 자바스크립트 코드 사용 시
+```
+span.footer--text &copy; #{new Date().getFullYear()} WeTube
+```
+
+#### Local Middleware
+- 클라이언트 전역에서 사용할 설정 값들을 정의한 뒤에 서버에서 `response.locals` 객체에 담아서 전달한다.
+- 해당 기능을 정의한 함수를 express의 middlesware로 정의한다.
+```javascript
+app.use((req, res, next) => {
+  res.locals.siteName = 'WebTube';
+  
+  next();
+});
+```
+```
+title #{siteName}
+```
