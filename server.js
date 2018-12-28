@@ -2,6 +2,10 @@ import app from './src/app';
 import dotenv from 'dotenv';
 
 /**
+ * database
+ */
+import './src/db';
+/**
  * import models
  */
 import './src/models/Videos';

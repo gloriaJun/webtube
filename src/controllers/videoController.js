@@ -1,13 +1,24 @@
-import { videos } from '../db';
-import routes from '../routes'
+import routes from '../routes';
+import Video from '../models/Videos';
 
 const BaseDir = 'videos';
 
-export const home = (req, res) => {
-  res.render('home', {
-    pageTitle: 'Home',
-    videos,
-  });
+export const home = async (req, res) => {
+  let videos = [];
+
+  try {
+    // get video list from db
+    videos = await Video.find({});
+    console.log(videos);
+  } catch (e) {
+    console.log(e);
+    res.status(500);
+  } finally {
+    res.render('home', {
+      pageTitle: 'Home',
+      videos,
+    });
+  }
 };
 
 export const search = (req, res) => {
@@ -16,7 +27,7 @@ export const search = (req, res) => {
   res.render(`${BaseDir}/search`, {
     pageTitle: 'Home',
     keyword,
-    videos,
+    // videos,
   });
 }
 
