@@ -97,6 +97,10 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
 
 ### Social Login
 
+### dotenv
+
+- https://www.npmjs.com/package/dotenv
+- `dotenv` 패키지를 이용하여 환경 변수로 정의한 파일을 외부에서 만들고, 관리할 수 있다.
 
 
 ## Requirement
