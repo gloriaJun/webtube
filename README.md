@@ -66,6 +66,7 @@ app.use(helmet());
 span.footer--text &copy; #{new Date().getFullYear()} WeTube
 ```
 
+
 #### Local Middleware
 - 클라이언트 전역에서 사용할 설정 값들을 정의한 뒤에 서버에서 `response.locals` 객체에 담아서 전달한다.
 - 해당 기능을 정의한 함수를 express의 middlesware로 정의한다.
@@ -79,3 +80,4 @@ app.use((req, res, next) => {
 ```
 title #{siteName}
 ```
+
