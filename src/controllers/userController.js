@@ -37,8 +37,6 @@ export const login = (req, res) => {
 }
 
 export const logout = (req, res) => {
-  // res.render(`${BaseDir}/logout`, { pageTitle: 'Logout' });
-
   res.redirect(routes.home);
 }
 

@@ -11,7 +11,7 @@ header.header
         ul
             if user.isAuthenticated
                 li
-                    a(href=routes.videoUpload) Upload
+                    a(href=`${routes.videos}${routes.videoUpload}`) Upload
                 li
                     a(href=`${routes.users}${routes.userDetail(user.id)}`) Profile
                 li
