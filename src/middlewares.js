@@ -1,8 +1,11 @@
 import multer from 'multer';
+import dotenv from 'dotenv';
 import routes from './routes';
 
+dotenv.config();
+
 const multerVideo = multer({
-  dest: 'videos/',
+  dest: process.env.UPLOAD_VIDEO_PATH,
 });
 export const uploadVideo = multerVideo.single('videoFile');
 
