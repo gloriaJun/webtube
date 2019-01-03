@@ -48,13 +48,28 @@ export const upload = async (req, res) => {
       title,
       description,
     });
-    console.log(newVideo, newVideo.id);
 
     res.redirect(`${routes.videos}${routes.videoDetail(newVideo.id)}`);
   }
 }
 
-export const videoDetail = (req, res) => res.render(`${BaseDir}/detail`, { pageTitle: 'Detail Video' });
+export const videoDetail = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+
+  try {
+    const video = await Video.findById(id);
+    res.render(`${BaseDir}/detail`, {
+      pageTitle: 'Detail Video',
+      video,
+    });
+  } catch (e) {
+    console.log(`Not Found - ${id}`)
+    res.redirect(routes.home);
+  } finally {
+  }
+}
 
 export const videoEdit = (req, res) => {
   if (req.method === 'GET') {
