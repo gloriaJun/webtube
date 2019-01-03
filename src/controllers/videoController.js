@@ -67,21 +67,47 @@ export const videoDetail = async (req, res) => {
   } catch (e) {
     console.log(`Not Found - ${id}`)
     res.redirect(routes.home);
-  } finally {
   }
 }
 
-export const videoEdit = (req, res) => {
+export const videoEdit = async (req, res) => {
   if (req.method === 'GET') {
-    res.render(`${BaseDir}/edit`, { pageTitle: 'Edit Video' });
+    const {
+      params: { id },
+    } = req;
+
+    try {
+      const video = await Video.findById(id);
+      res.render(`${BaseDir}/edit`, {
+        pageTitle: `Edit Video: ${video.title}`,
+        video,
+      });
+    } catch (e) {
+      console.log(`Not Found - ${id}`)
+      res.redirect(routes.home);
+    }
   } else {
     const {
+      params: { id },
+    } = req;
+
+    const {
       title,
-      file,
       description,
     } = req.body;
 
-    res.redirect(`${routes.videos}${routes.videoDetail(1212121)}`);
+    try {
+      const updateVideo = await Video.findOneAndUpdate({
+        id,
+        title,
+        description,
+      });
+      res.redirect(`${routes.videos}${routes.videoDetail(updateVideo.id)}`);
+    } catch (e) {
+      console.log(`Not Found - ${id}`)
+      res.redirect(routes.home);
+    }
+
   }
 }
 
