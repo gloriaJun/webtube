@@ -104,11 +104,24 @@ export const videoEdit = async (req, res) => {
       });
       res.redirect(`${routes.videos}${routes.videoDetail(updateVideo.id)}`);
     } catch (e) {
-      console.log(`Not Found - ${id}`)
+      console.log(`An Error Occurred when updated - ${id}`)
       res.redirect(routes.home);
     }
-
   }
 }
 
-export const videoDelete = (req, res) => res.render(`${BaseDir}/delete`, { pageTitle: 'Delete Video' });
+export const videoDelete = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+
+  try {
+    await Video.findOneAndUpdate({
+      id,
+    });
+    res.redirect(routes.home);
+  } catch (e) {
+    console.log(`An Error Occurred when delete - ${id}`)
+    res.redirect(routes.home);
+  }
+}
