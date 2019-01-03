@@ -31,17 +31,26 @@ export const search = (req, res) => {
   });
 }
 
-export const upload = (req, res) => {
+export const upload = async (req, res) => {
   if (req.method === 'GET') {
     res.render(`${BaseDir}/upload`, { pageTitle: 'Upload Video' });
   } else {
     const {
-      title,
-      file,
-      description,
-    } = req.body;
+      body: {
+        title,
+        description,
+      },
+      file: { path },
+    } = req;
 
-    res.redirect(`${routes.videos}${routes.videoDetail(1212121)}`);
+    const newVideo = await Video.create({
+      fileUrl: path,
+      title,
+      description,
+    });
+    console.log(newVideo, newVideo.id);
+
+    res.redirect(`${routes.videos}${routes.videoDetail(newVideo.id)}`);
   }
 }
 

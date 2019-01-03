@@ -65,6 +65,12 @@ import helmet from 'helmet';
 app.use(helmet());
 ```
 
+#### multer
+
+- https://www.npmjs.com/package/multer
+- 파일 업로드를 위한 라이브러리
+
+
 #### Local Middleware
 
 - 클라이언트 전역에서 사용할 설정 값들을 정의한 뒤에 서버에서 `response.locals` 객체에 담아서 전달한다.
@@ -101,6 +107,7 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
 
 - https://www.npmjs.com/package/dotenv
 - `dotenv` 패키지를 이용하여 환경 변수로 정의한 파일을 외부에서 만들고, 관리할 수 있다.
+
 
 
 ## Requirement
