@@ -2,8 +2,6 @@
 
 - 강의링크 : [유튜브 클론 코딩](https://academy.nomadcoders.co/courses/435438/lectures/6811582)
 
-https://academy.nomadcoders.co/courses/435438/lectures/6849419
-
 ## 해당 프로젝트의 목적
 
 1. Vanilla Javascript를 이용하여 프로젝트 수행해보기

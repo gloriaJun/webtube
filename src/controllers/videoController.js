@@ -9,7 +9,6 @@ export const home = async (req, res) => {
   try {
     // get video list from db
     videos = await Video.find({});
-    console.log(videos);
   } catch (e) {
     console.log(e);
     res.status(500);
@@ -61,7 +60,7 @@ export const videoDetail = async (req, res) => {
   try {
     const video = await Video.findById(id);
     res.render(`${BaseDir}/detail`, {
-      pageTitle: 'Detail Video',
+      pageTitle: `Detail Video: ${video.title}`,
       video,
     });
   } catch (e) {
@@ -97,11 +96,12 @@ export const videoEdit = async (req, res) => {
     } = req.body;
 
     try {
-      const updateVideo = await Video.findOneAndUpdate({
-        id,
-        title,
-        description,
-      });
+      const updateVideo = await Video.findOneAndUpdate(
+        { _id: id },
+        {
+          title,
+          description,
+        })
       res.redirect(`${routes.videos}${routes.videoDetail(updateVideo.id)}`);
     } catch (e) {
       console.log(`An Error Occurred when updated - ${id}`)
@@ -116,9 +116,7 @@ export const videoDelete = async (req, res) => {
   } = req;
 
   try {
-    await Video.findOneAndUpdate({
-      id,
-    });
+    await Video.findOneAndDelete({ _id: id });
     res.redirect(routes.home);
   } catch (e) {
     console.log(`An Error Occurred when delete - ${id}`)
