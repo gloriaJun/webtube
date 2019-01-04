@@ -3,8 +3,12 @@ include ../mixins/videoBlock
 
 block content
     .search--header
-        h3 Searching by...
+        h3 Searching for:
             span.search--keyword #{keyword}
+
+    .search__videos
+        if videos.length === 0
+            h5 No Videos Found
 
     .search--result
         each video in videos
