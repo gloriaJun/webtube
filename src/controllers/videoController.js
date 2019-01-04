@@ -3,12 +3,23 @@ import Video from '../models/Videos';
 
 const BaseDir = 'videos';
 
+function searchVideo(keyword = '') {
+  const params = !keyword
+    ? {}
+    : {
+        title: {
+          $regex: keyword,
+          $options: 'i',
+        },
+      };
+  return Video.find(params).sort({ _id: -1 });
+}
+
 export const home = async (req, res) => {
   let videos = [];
 
   try {
-    // get video list from db
-    videos = await Video.find({}).sort({ _id: -1 });
+    videos = await searchVideo();
   } catch (e) {
     console.log(e);
     res.status(500);
@@ -20,16 +31,24 @@ export const home = async (req, res) => {
   }
 };
 
-export const search = (req, res) => {
+export const search = async (req, res) => {
   const {
     query: { keyword },
   } = req;
+  let videos = [];
 
-  res.render(`${BaseDir}/search`, {
-    pageTitle: 'Home',
-    keyword,
-    // videos,
-  });
+  try {
+    videos = await searchVideo(keyword);
+  } catch (e) {
+    console.log(e);
+    res.status(500);
+  } finally {
+    res.render(`${BaseDir}/search`, {
+      pageTitle: 'Home',
+      keyword,
+      videos,
+    });
+  }
 };
 
 export const upload = async (req, res) => {
