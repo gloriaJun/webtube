@@ -6,7 +6,7 @@ import {
   videoDetail,
   videoEdit,
 } from '../controllers/videoController';
-import { uploadVideo } from '../middlewares'
+import { uploadVideo } from '../middlewares';
 
 const videoRouter = express.Router();
 

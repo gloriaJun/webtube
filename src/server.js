@@ -1,20 +1,20 @@
-import app from './src/app';
 import dotenv from 'dotenv';
+import app from './app';
 
 /**
  * database
  */
-import './src/db';
+import './db';
 /**
  * import models
  */
-import './src/models/Videos';
-import './src/models/Comment';
+import './models/Videos';
+import './models/Comment';
 
 dotenv.config();
 
 const PORT = process.env.APP_PORT;
 
-app.listen(PORT, function () {
+app.listen(PORT, () => {
   console.log(`💡Listening on http://localhost:${PORT}`);
 });

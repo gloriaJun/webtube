@@ -21,7 +21,6 @@ const VIDEO_DETAIL = '/:id';
 const VIDEO_EDIT = '/:id/edit';
 const VIDEO_DELETE = '/:id/delete';
 
-
 const routes = {
   home: HOME,
   join: JOIN,
@@ -29,14 +28,14 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
   users: USERS,
-  userDetail: id => id ? `/${id}` : USER_DETAIL,
+  userDetail: id => (id ? `/${id}` : USER_DETAIL),
   userEdit: USER_EDIT,
   userChangePassword: CHANGE_PASSWORD,
   videos: VIDEOS,
   videoUpload: VIDEO_UPLOAD,
-  videoDetail: id => id ? `/${id}` : VIDEO_DETAIL,
-  videoEdit: id => id ? `/${id}/edit` : VIDEO_EDIT,
-  videoDelete: id => id ? `/${id}/delete` : VIDEO_DELETE,
+  videoDetail: id => (id ? `/${id}` : VIDEO_DETAIL),
+  videoEdit: id => (id ? `/${id}/edit` : VIDEO_EDIT),
+  videoDelete: id => (id ? `/${id}/delete` : VIDEO_DELETE),
 };
 
 export default routes;
