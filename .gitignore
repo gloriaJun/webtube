@@ -8,3 +8,6 @@ package-lock.json
 
 # upload directory
 uploads/
+
+# output directory
+dist/

@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js --delay 2",
+    "build": "MODE=development webpack",
     "lint": "eslint src"
   },
   "dependencies": {
@@ -23,10 +24,12 @@
     "@babel/preset-env": "^7.2.3",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
     "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "nodemon": "^1.18.9",
     "prettier": "^1.15.3",
-    "nodemon": "^1.18.9"
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0"
   }
 }
