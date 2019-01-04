@@ -8,9 +8,6 @@
 2. node.js를 이용하여 MVC 패턴을 이용하여 백앤드 구성
 3. 아는 것들도 전반적으로 정리해보기~~~
 
-
-
- 
 ## What I did Learn
 
 ### babel-node
@@ -108,7 +105,9 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
 - https://www.npmjs.com/package/dotenv
 - `dotenv` 패키지를 이용하여 환경 변수로 정의한 파일을 외부에서 만들고, 관리할 수 있다.
 
+## Reference Link
 
+* [mongoose - Query](https://mongoosejs.com/docs/api.html#Query)
 
 ## Requirement
 
@@ -122,3 +121,4 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
 ### What I do More
 
 - [ ]
+

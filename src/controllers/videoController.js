@@ -8,7 +8,7 @@ export const home = async (req, res) => {
 
   try {
     // get video list from db
-    videos = await Video.find({});
+    videos = await Video.find({}).sort({ _id: -1 });
   } catch (e) {
     console.log(e);
     res.status(500);
