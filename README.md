@@ -1,6 +1,6 @@
 # Youtube Clone Coding
 
-- 강의링크 : [유튜브 클론 코딩](https://academy.nomadcoders.co/courses/435438/lectures/6811582)
+- 강의링크 : [유튜브 클론 코딩](https://academy.nomadcoders.co/courses/435438)
 
 ## 해당 프로젝트의 목적
 
@@ -105,10 +105,18 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
 - https://www.npmjs.com/package/dotenv
 - `dotenv` 패키지를 이용하여 환경 변수로 정의한 파일을 외부에서 만들고, 관리할 수 있다.
 
+### Webpack
+
+#### extract-text-webpack-plugin
+
+- https://github.com/webpack-contrib/extract-text-webpack-plugin
+- 스타일 파일을 단일 파일로 추출하기 위한 플러그인
+- extract-text-webpack-plugin@next를 설치해야 webpack4 이상에서 사용을 할 수 있다.
+
 ## Reference Link
 
-* [mongoose - Query](https://mongoosejs.com/docs/api.html#Query)
-* [prettier - Options](https://prettier.io/docs/en/options.html)
+- [mongoose - Query](https://mongoosejs.com/docs/api.html#Query)
+- [prettier - Options](https://prettier.io/docs/en/options.html)
 
 ## Requirement
 
@@ -119,5 +127,3 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
 - [ ] 비디오를 검색할 수 있다.
 
 ### What I do More
-
-

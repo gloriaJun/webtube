@@ -1,23 +1,42 @@
 const path = require('path');
+const ExtractCSS = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
-const ENTRY_FILE = path.resolve(__dirname, 'assets/js/main.js');
+const ENTRY_FILE = path.resolve(__dirname, 'src', 'assets', 'js', 'main.js');
 const OUTPUT_DIR = path.resolve(__dirname, 'dist');
 
 const config = {
   mode: process.env.MODE,
   entry: ENTRY_FILE,
-  output: {
-    path: OUTPUT_DIR,
-    // filename: '[name].[format]',
-  },
+
   module: {
     rules: [
       {
         test: /\.(s?css)$/,
-        // include: [],
+        use: ExtractCSS.extract([
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins() {
+                return [autoprefixer({ browsers: 'cover 99.5%' })];
+              },
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ]),
       },
     ],
   },
+  output: {
+    path: OUTPUT_DIR,
+    // filename: '[name].[format]',
+  },
+  plugins: [new ExtractCSS('app.css')],
 };
 
 module.exports = config;
