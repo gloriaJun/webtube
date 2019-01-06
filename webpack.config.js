@@ -7,7 +7,7 @@ const OUTPUT_DIR = path.resolve(__dirname, 'dist');
 
 const config = {
   mode: process.env.MODE,
-  entry: ENTRY_FILE,
+  entry: ['@babel/polyfill', ENTRY_FILE],
 
   module: {
     rules: [
