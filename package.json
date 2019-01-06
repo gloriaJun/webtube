@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js --delay 2",
-    "build": "MODE=development webpack",
+    "build": "MODE=development webpack -w",
     "lint": "eslint src"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "autoprefixer": "^9.4.4",
+    "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",

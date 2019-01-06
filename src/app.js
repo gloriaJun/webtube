@@ -34,6 +34,7 @@ app.use(morgan('tiny'));
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static('dist'));
 
 // 클라이언트에서 사용할 변수 값들을 정의해서 response 객체에 담아 전달한다
 app.use(localsMiddleware);
