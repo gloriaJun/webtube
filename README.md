@@ -113,6 +113,17 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
 - 스타일 파일을 단일 파일로 추출하기 위한 플러그인
 - extract-text-webpack-plugin@next를 설치해야 webpack4 이상에서 사용을 할 수 있다.
 
+### CSS
+
+#### place-content & place-items
+
+- place-content
+  - 첫 번째 값으로 `align-content`, 두번째 값으로 `justify-content`의 값을 받는다.
+
+- place-items
+  - 첫 번째 값으로 `align-items`, 두번째 값으로 `justify-content`의 값을 받는다.
+  
+
 ## Reference Link
 
 - [mongoose - Query](https://mongoosejs.com/docs/api.html#Query)

@@ -20,7 +20,7 @@ const config = {
         ],
       },
       {
-        test: /\.(s?css)$/,
+        test: /\.(scss)$/,
         use: ExtractCSS.extract([
           {
             loader: 'css-loader',

@@ -1,23 +1,24 @@
 header.header
-    .header-column
-        a(href=routes.home)
-            i.fab.fa-youtube
+    .header--wrapper
+        .header-column
+            a(href=routes.home)
+                i.fab.fa-youtube
 
-    .header-column
-        form(action=routes.search, method="get")
-            input(type="text", placeholder="Search by Keyword", name="keyword")
+        .header-column
+            form(action=routes.search, method="get")
+                input(type="text", placeholder="Search by Keyword", name="keyword")
 
-    .header-column
-        ul
-            if user.isAuthenticated
-                li
-                    a(href=`${routes.videos}${routes.videoUpload}`) Upload
-                li
-                    a(href=`${routes.users}${routes.userDetail(user.id)}`) Profile
-                li
-                    a(href=routes.logout) LogOut
-            else
-                li
-                    a(href=routes.join) Join
-                li
-                    a(href=routes.login) Login
+        .header-column
+            ul
+                if user.isAuthenticated
+                    li
+                        a(href=`${routes.videos}${routes.videoUpload}`) Upload
+                    li
+                        a(href=`${routes.users}${routes.userDetail(user.id)}`) Profile
+                    li
+                        a(href=routes.logout) LogOut
+                else
+                    li
+                        a(href=routes.join) Join
+                    li
+                        a(href=routes.login) Login
