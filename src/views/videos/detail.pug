@@ -1,15 +1,15 @@
 extends ../layouts/main.pug
 
 block content
-    .video__player
-        video(src=`/${video.fileUrl}`, controls=true)
-    .video__info
-        a(href=`${routes.videos}${routes.videoEdit(video.id)}`) Edit Video
-        h5.video__title=video.title
-        span.video__view=video.views
-        p.video__description=video.description
+    .video-detail__wrapper
+        .video__player
+            video(src=`/${video.fileUrl}`, controls=true)
+        .video__info
+            a(href=`${routes.videos}${routes.videoEdit(video.id)}`)
+                button Edit Video
+            h5.video__title=video.title
+            span.video__view=`${video.views} views`
+            p.video__description=video.description
 
-    .video__comments
-        span.video__comment-number #{video.comments.length} comment
-
-
+        .video__comments
+            span.video__comment-number #{video.comments.length} comment
