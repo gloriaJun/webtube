@@ -67,6 +67,14 @@ app.use(helmet());
 - https://www.npmjs.com/package/multer
 - 파일 업로드를 위한 라이브러리
 
+#### Passport
+
+- http://www.passportjs.org/
+- 사용자 인증을 위한 라이브러리 
+
+##### passport-local-mongoose
+
+- https://github.com/saintedlama/passport-local-mongoose
 
 #### Local Middleware
 
@@ -122,7 +130,6 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
 
 - place-items
   - 첫 번째 값으로 `align-items`, 두번째 값으로 `justify-content`의 값을 받는다.
-  
 
 ## Reference Link
 

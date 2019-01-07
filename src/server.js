@@ -11,6 +11,7 @@ import './db';
  */
 import './models/Videos';
 import './models/Comment';
+import './models/Users';
 
 dotenv.config();
 
