@@ -4,6 +4,7 @@ import { home, search } from '../controllers/videoController';
 import {
   doLogin,
   githubLogin,
+  githubLogin2,
   doLoginByGithub,
   join,
   login,
@@ -23,7 +24,7 @@ globalRouter.get(routes.login, login);
 globalRouter.post(routes.login, doLogin);
 
 globalRouter.get(routes.github, githubLogin);
-globalRouter.post(routes.githubCallback, githubLogin, doLoginByGithub);
+globalRouter.get(routes.githubCallback, githubLogin2, doLoginByGithub);
 
 globalRouter.get(routes.logout, onlyPrivate, logout);
 

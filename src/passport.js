@@ -1,12 +1,9 @@
 import passport from 'passport';
 import GithubStrategy from 'passport-github';
-import dotenv from 'dotenv';
 
 import Users from './models/Users';
 import { loginByGithubCallback } from './controllers/userController';
 import routes from './routes';
-
-dotenv.config();
 
 passport.use(Users.createStrategy());
 passport.use(
