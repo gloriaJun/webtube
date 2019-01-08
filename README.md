@@ -77,6 +77,10 @@ app.use(helmet());
 
 - https://github.com/saintedlama/passport-local-mongoose
 
+#### connect-mongo
+
+- https://www.npmjs.com/package/connect-mongo
+
 #### Local Middleware
 
 - 클라이언트 전역에서 사용할 설정 값들을 정의한 뒤에 서버에서 `response.locals` 객체에 담아서 전달한다.

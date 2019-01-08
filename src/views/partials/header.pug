@@ -10,7 +10,7 @@ header.header
 
         .header-column
             ul
-                if user.isAuthenticated
+                if user
                     li
                         a(href=`${routes.videos}${routes.videoUpload}`) Upload
                     li
