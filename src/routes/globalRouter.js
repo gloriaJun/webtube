@@ -1,7 +1,14 @@
 import express from 'express';
 import routes from '../routes';
 import { home, search } from '../controllers/videoController';
-import { doLogin, join, login, logout } from '../controllers/userController';
+import {
+  doLogin,
+  githubLogin,
+  doLoginByGithub,
+  join,
+  login,
+  logout,
+} from '../controllers/userController';
 import { onlyPublic } from '../middlewares';
 
 const globalRouter = express.Router();
@@ -14,6 +21,9 @@ globalRouter.post(routes.join, join, doLogin);
 
 globalRouter.get(routes.login, login);
 globalRouter.post(routes.login, doLogin);
+
+globalRouter.get(routes.github, githubLogin);
+globalRouter.post(routes.githubCallback, githubLogin, doLoginByGithub);
 
 globalRouter.get(routes.logout, logout);
 

@@ -136,6 +136,15 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
 - place-items
   - 첫 번째 값으로 `align-items`, 두번째 값으로 `justify-content`의 값을 받는다.
 
+### Login
+
+- http://www.passportjs.org/packages/
+- Github Login
+  - http://www.passportjs.org/packages/passport-github/
+  - https://github.com/settings/applications/new 에서 OAuth App을 등록한다.
+- Facebook Login
+  - http://www.passportjs.org/packages/passport-facebook/
+
 ## Reference Link
 
 - [mongoose - Query](https://mongoosejs.com/docs/api.html#Query)

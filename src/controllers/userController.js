@@ -35,6 +35,21 @@ export const login = (req, res) => {
   res.render(`${BaseDir}/login`, { pageTitle: 'Login' });
 };
 
+export const githubLogin = passport.authenticate('github', {
+  failureRedirect: routes.login,
+});
+
+export const loginByGithubCallback = (accessToken, refreshToken, profile, cb) => {
+  // User.findOrCreate({ githubId: profile.id }, function (err, user) {
+  //   return cb(err, user);
+  // });
+  console.log(accessToken, refreshToken, profile, cb);
+};
+
+export const doLoginByGithub = (req, res) => {
+  res.send(routes.home);
+};
+
 export const doLogin = passport.authenticate('local', {
   successRedirect: routes.home,
   failureRedirect: routes.login,
