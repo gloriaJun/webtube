@@ -56,6 +56,7 @@ export const doLogin = passport.authenticate('local', {
 });
 
 export const logout = (req, res) => {
+  req.logout();
   res.redirect(routes.home);
 };
 
