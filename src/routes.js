@@ -8,7 +8,7 @@ const SEARCH = '/search';
  * users
  */
 const USERS = '/users';
-const USER_DETAIL = '/:id';
+const USER_DETAIL = '/info';
 const USER_EDIT = '/edit/profile';
 const CHANGE_PASSWORD = '/edit/password';
 
@@ -34,7 +34,7 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
   users: USERS,
-  userDetail: id => (id ? `/${id}` : USER_DETAIL),
+  userDetail: USER_DETAIL,
   userEdit: USER_EDIT,
   userChangePassword: CHANGE_PASSWORD,
   videos: VIDEOS,

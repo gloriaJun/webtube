@@ -11,7 +11,7 @@ import { onlyPrivate } from '../middlewares';
 const userRouter = express.Router();
 
 userRouter.get(routes.users, onlyPrivate, users);
-userRouter.get(routes.userDetail(), onlyPrivate, userDetail);
+userRouter.get(routes.userDetail, onlyPrivate, userDetail);
 userRouter.get(routes.userEdit, onlyPrivate, userEdit);
 userRouter.get(routes.userChangePassword, onlyPrivate, userChangePassword);
 

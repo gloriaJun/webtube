@@ -35,9 +35,7 @@ export const login = (req, res) => {
   res.render(`${BaseDir}/login`, { pageTitle: 'Login' });
 };
 
-export const githubLogin = passport.authenticate('github');
-
-export const githubLogin2 = passport.authenticate('github', {
+export const githubLogin = passport.authenticate('github', {
   failureRedirect: routes.login,
 });
 
@@ -85,9 +83,14 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const users = (req, res) => res.send('users');
-export const userDetail = (req, res) =>
-  res.render(`${BaseDir}/detail`, { pageTitle: 'Profile' });
+export const users = (req, res) => {
+  res.send('users');
+};
+
+export const userDetail = (req, res) => {
+  res.render(`${BaseDir}/detail`, { pageTitle: 'Profile', user: req.user });
+};
+
 export const userEdit = (req, res) =>
   res.render(`${BaseDir}/edit`, { pageTitle: 'Edit Profile' });
 export const userChangePassword = (req, res) =>
