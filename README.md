@@ -71,6 +71,7 @@ app.use(helmet());
 
 - http://www.passportjs.org/
 - 사용자 인증을 위한 라이브러리 
+- 간단하고 쉽게 사용자 인증 처리를 할 수 있다.
 
 ##### passport-local-mongoose
 

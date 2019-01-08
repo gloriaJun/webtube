@@ -1,22 +1,29 @@
 import routes from '../routes';
+import Users from '../models/Users';
 
 const BaseDir = 'users';
 
-export const join = (req, res) => {
+export const join = async (req, res) => {
   if (req.method === 'GET') {
     res.render(`${BaseDir}/join`, { pageTitle: 'Join' });
   } else {
-    const {
-      // name,
-      // email,
-      password,
-      password2,
-    } = req.body;
+    const { name, email, password, password2 } = req.body;
 
     if (password !== password2) {
       res.status(400);
       res.render(`${BaseDir}/join`, { pageTitle: 'Join' });
     } else {
+      try {
+        const user = await Users.create({
+          name,
+          email,
+        });
+
+        Users.register(user, password);
+      } catch (e) {
+        console.log(e);
+        res.status(500);
+      }
       res.redirect(routes.home);
     }
   }
