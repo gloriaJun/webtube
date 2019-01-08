@@ -80,7 +80,7 @@ export const loginByFacebookCallback = async (
   cb,
 ) => {
   const {
-    _json: { id, picture: { data: { url } }, displayName, email },
+    _json: { id, displayName, email },
   } = profile;
 
   console.log(profile);
@@ -88,7 +88,8 @@ export const loginByFacebookCallback = async (
   try {
     const user = await Users.findOne({ email });
     if (user) {
-      user.githubId = id;
+      user.facebookId = id;
+      user.avatarUrl = `https://graph.facebook.com/${id}/picture?type=large`;
       user.save();
     } else {
       const newUser = await Users.create({
@@ -96,7 +97,6 @@ export const loginByFacebookCallback = async (
         name: displayName,
         facebookId: id,
         avatarUrl: `https://graph.facebook.com/${id}/picture?type=large`,
-        // avatarUrl: url,
       });
       return cb(null, newUser);
     }
