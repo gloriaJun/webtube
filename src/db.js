@@ -8,7 +8,7 @@ mongoose.connect(
   process.env.MONGODB_URL,
   {
     useNewUrlParser: true,
-    // useFindAndModify: false,
+    useFindAndModify: false,
   },
 );
 
@@ -21,4 +21,3 @@ db.once('open', () => {
 db.on('error', error => {
   console.log('⁉️db connect failed', error);
 });
-

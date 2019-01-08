@@ -1,8 +1,10 @@
+import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
-import path from 'path';
+import passport from 'passport';
+import session from 'express-session';
 
 // import middleware
 import { localsMiddleware } from './middlewares';
@@ -13,7 +15,17 @@ import globalRouter from './routes/globalRouter';
 import userRouter from './routes/userRouter';
 import videoRouter from './routes/videoRouter';
 
+import './passport';
+
 const app = express();
+
+/**
+ * set template engine
+ */
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+app.use('/uploads', express.static('uploads'));
+app.use('/dist', express.static('dist'));
 
 /**
  * middleware
@@ -26,15 +38,16 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // for logging
-app.use(morgan('tiny'));
-
-/**
- * set template engine
- */
-app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'));
-app.use('/uploads', express.static('uploads'));
-app.use('/dist', express.static('dist'));
+app.use(morgan('dev'));
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: false,
+  }),
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // 클라이언트에서 사용할 변수 값들을 정의해서 response 객체에 담아 전달한다
 app.use(localsMiddleware);

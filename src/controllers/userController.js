@@ -1,9 +1,11 @@
+import passport from 'passport';
+
 import routes from '../routes';
 import Users from '../models/Users';
 
 const BaseDir = 'users';
 
-export const join = async (req, res) => {
+export const join = async (req, res, next) => {
   if (req.method === 'GET') {
     res.render(`${BaseDir}/join`, { pageTitle: 'Join' });
   } else {
@@ -14,41 +16,34 @@ export const join = async (req, res) => {
       res.render(`${BaseDir}/join`, { pageTitle: 'Join' });
     } else {
       try {
-        const user = await Users.create({
+        const user = await Users({
           name,
           email,
         });
 
-        Users.register(user, password);
+        await Users.register(user, password);
+        next();
       } catch (e) {
         console.log(e);
-        res.status(500);
+        res.redirect(routes.home);
       }
-      res.redirect(routes.home);
     }
   }
 };
 
 export const login = (req, res) => {
-  if (req.method === 'GET') {
-    res.render(`${BaseDir}/login`, { pageTitle: 'Login' });
-  } else {
-    // const {
-    //   email,
-    //   password,
-    // } = req.body;
-
-    res.redirect(routes.home);
-  }
+  res.render(`${BaseDir}/login`, { pageTitle: 'Login' });
 };
+
+export const doLogin = passport.authenticate('local', {
+  successRedirect: routes.home,
+  failureRedirect: routes.login,
+});
 
 export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
-// export const videoDetail = (req, res) => res.render(`${BaseDir}/detail`, { pageTitle: 'Detail Video' });
-// export const videoEdit = (req, res) => res.render(`${BaseDir}/edit`, { pageTitle: 'Edit Video' });
-// export const videoDelete = (req, res) => res.render(`${BaseDir}/delete`, { pageTitle: 'Delete Video' });
 export const users = (req, res) => res.send('users');
 export const userDetail = (req, res) =>
   res.render(`${BaseDir}/detail`, { pageTitle: 'Profile' });
