@@ -9,7 +9,7 @@ import {
   login,
   logout,
 } from '../controllers/userController';
-import { onlyPublic } from '../middlewares';
+import { onlyPrivate, onlyPublic } from '../middlewares';
 
 const globalRouter = express.Router();
 
@@ -25,6 +25,6 @@ globalRouter.post(routes.login, doLogin);
 globalRouter.get(routes.github, githubLogin);
 globalRouter.post(routes.githubCallback, githubLogin, doLoginByGithub);
 
-globalRouter.get(routes.logout, logout);
+globalRouter.get(routes.logout, onlyPrivate, logout);
 
 export default globalRouter;

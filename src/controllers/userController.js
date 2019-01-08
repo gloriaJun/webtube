@@ -39,7 +39,12 @@ export const githubLogin = passport.authenticate('github', {
   failureRedirect: routes.login,
 });
 
-export const loginByGithubCallback = (accessToken, refreshToken, profile, cb) => {
+export const loginByGithubCallback = (
+  accessToken,
+  refreshToken,
+  profile,
+  cb,
+) => {
   // User.findOrCreate({ githubId: profile.id }, function (err, user) {
   //   return cb(err, user);
   // });
