@@ -27,6 +27,9 @@ const VIDEO_DELETE = '/:id/delete';
 const GITHUB = '/auth/github';
 const GITHUB_CALLBACK = '/auth/github/userInfo';
 
+const FACEBOOK = '/auth/facebook';
+const FACEBOOK_CALLBACK = '/auth/facebook/userInfo';
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -44,6 +47,8 @@ const routes = {
   videoDelete: id => (id ? `/${id}/delete` : VIDEO_DELETE),
   github: GITHUB,
   githubCallback: GITHUB_CALLBACK,
+  facebook: FACEBOOK,
+  facebookCallback: FACEBOOK_CALLBACK,
 };
 
 export default routes;

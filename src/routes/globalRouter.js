@@ -4,7 +4,8 @@ import { home, search } from '../controllers/videoController';
 import {
   doLogin,
   githubLogin,
-  doLoginByGithub,
+  facebookLogin,
+  doLoginBySocial,
   join,
   login,
   logout,
@@ -23,7 +24,10 @@ globalRouter.get(routes.login, login);
 globalRouter.post(routes.login, doLogin);
 
 globalRouter.get(routes.github, githubLogin);
-globalRouter.get(routes.githubCallback, githubLogin, doLoginByGithub);
+globalRouter.get(routes.githubCallback, githubLogin, doLoginBySocial);
+
+globalRouter.get(routes.facebook, facebookLogin);
+globalRouter.get(routes.facebookCallback, facebookLogin, doLoginBySocial);
 
 globalRouter.get(routes.logout, onlyPrivate, logout);
 

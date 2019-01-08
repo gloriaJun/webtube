@@ -144,6 +144,9 @@ span.footer--text &copy; #{new Date().getFullYear()} WeTube
   - https://github.com/settings/applications/new 에서 OAuth App을 등록한다.
 - Facebook Login
   - http://www.passportjs.org/packages/passport-facebook/
+  - https로 시작해야한다.
+    - https://localtunnel.me
+    - https로 시작하는 로컬 터널을 생성해준다. (단지, 테스트를 위함)
 
 ## Reference Link
 

@@ -69,7 +69,44 @@ export const loginByGithubCallback = async (
   }
 };
 
-export const doLoginByGithub = (req, res) => {
+export const facebookLogin = passport.authenticate('facebook', {
+  failureRedirect: routes.login,
+});
+
+export const loginByFacebookCallback = async (
+  accessToken,
+  refreshToken,
+  profile,
+  cb,
+) => {
+  const {
+    _json: { id, picture: { data: { url } }, displayName, email },
+  } = profile;
+
+  console.log(profile);
+
+  try {
+    const user = await Users.findOne({ email });
+    if (user) {
+      user.githubId = id;
+      user.save();
+    } else {
+      const newUser = await Users.create({
+        email,
+        name: displayName,
+        facebookId: id,
+        avatarUrl: `https://graph.facebook.com/${id}/picture?type=large`,
+        // avatarUrl: url,
+      });
+      return cb(null, newUser);
+    }
+  } catch (e) {
+    console.log(e);
+    return cb(e);
+  }
+};
+
+export const doLoginBySocial = (req, res) => {
   res.redirect(routes.home);
 };
 
