@@ -1,5 +1,7 @@
 # Youtube Clone Coding
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/gloriaJun/webtube.svg)](https://greenkeeper.io/)
+
 - 강의링크 : [유튜브 클론 코딩](https://academy.nomadcoders.co/courses/435438)
 
 ## 해당 프로젝트의 목적
