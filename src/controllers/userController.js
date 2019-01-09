@@ -128,7 +128,11 @@ export const userDetail = (req, res) => {
   res.render(`${BaseDir}/detail`, { pageTitle: 'Profile', user: req.user });
 };
 
-export const userEdit = (req, res) =>
+export const userEdit = (req, res) => {
   res.render(`${BaseDir}/edit`, { pageTitle: 'Edit Profile' });
+
+  // TODO
+};
+
 export const userChangePassword = (req, res) =>
   res.render(`${BaseDir}/changePassword`, { pageTitle: 'Change Password' });
